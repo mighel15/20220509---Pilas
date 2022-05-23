@@ -76,6 +76,29 @@ public:
 			cout << "-----------" << endl;
 		}
 	}
+	void Invertir()
+	{
+		int indicePosterior = indice - 1;
+		for (int i = 0; i < indice / 2; i++)
+		{
+			int temp = elementos[i];
+			elementos[i] = elementos[indicePosterior];
+			elementos[indicePosterior] = temp;
+			indicePosterior--;
+		}
+	}
+
+	void Invertir()
+	{
+		int indicePosterior = indice;
+		for (int i = 0; i < indice / 2; i++)
+		{
+			int temp = elementos[i];
+			elementos[i] = elementos[indicePosterior];
+			elementos[indicePosterior] = temp;
+			indicePosterior--;
+		}
+	}//MABERIX MILNER ALARICO MAMANI 2 pts
 };
 
 void Menu()
@@ -83,11 +106,16 @@ void Menu()
 	cout << "1) Insertar elemento " << endl;
 	cout << "2) Quitar elemento " << endl;
 	cout << "3) Imprimir pila " << endl;
+	cout << "4) Invertir elementos" << endl;
 	cout << "0) Salir " << endl;
 }
 
 int main()
 {
+	/*cout << 4 / 2 << endl;
+	cout << 5 / 2 << endl;
+	cout << 6 / 2 << endl;*/
+
 	int opcion = 0;
 	int elemento = 0;
 	Pila pila = Pila();
@@ -102,12 +130,14 @@ int main()
 			cin >> elemento;
 			pila.Insertar(elemento);
 			break;
-		case 2:
-			elemento = pila.Quitar();
+		case 2:			
 			cout << "El elemento quitado es: " << pila.Quitar() << endl;
 			break;
 		case 3:
 			pila.Imprimir();
+			break;
+		case 4:
+			pila.Invertir();
 			break;
 		default:
 			cout << "opción no valida" << endl;
